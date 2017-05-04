@@ -29,13 +29,13 @@ class Storage(object):
 
         if not result:
             data.update({
-                'last_updated': None,
-                'created': arrow.utcnow(),
-                'last_ip_change': arrow.utcnow(),
+                'last_seen': None,
+                'first_seen': arrow.utcnow(),
+                'last_ip_change': None,
             })
             self.db.insert(data)
         else:
-            data.update({'last_updated': arrow.utcnow()})
+            data.update({'last_seen': arrow.utcnow()})
 
             if data['ip_address'] != result[0]['ip_address']:
                 data.update({'last_ip_change': arrow.utcnow()})

@@ -16,8 +16,8 @@ print('-'*130)
 print('{:<24}{:<24}{:<30}{:<30}{:<30}'.format(
     'mac_address',
     'ip_address',
-    'created',
-    'last_updated',
+    'first_seen',
+    'last_seen',
     'last_ip_change',
 ))
 print('-'*130)
@@ -25,8 +25,8 @@ for row in storage.db.all():
     print('{:<24}{:<24}{:<30}{:<30}{:<30}'.format(
         row['mac_address'],
         row['ip_address'],
-        row['created'].format('YYYY-MM-DD HH:mm:ss') if row['created'] else None,
-        row['last_updated'].format('YYYY-MM-DD HH:mm:ss') if row['last_updated'] else None,
+        row['first_seen'].format('YYYY-MM-DD HH:mm:ss') if row['first_seen'] else None,
+        row['last_seen'].format('YYYY-MM-DD HH:mm:ss') if row['last_seen'] else None,
         row['last_ip_change'].format('YYYY-MM-DD HH:mm:ss') if row['last_ip_change'] else None,
     ))
 print('-'*130)

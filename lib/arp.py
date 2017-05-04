@@ -32,6 +32,10 @@ def get_arp_table():
     return arp_table
 
 def format_mac_address(input_mac):
+
+    if not input_mac:
+        return None
+
     parts = input_mac.lower().split(':')
 
     for idx, part in enumerate(parts):
